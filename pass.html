@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Basic java script and interact with the DOM</title>
+
+    <script>
+        var correct = 0, wrong = 0;
+        function processPhrase() {
+
+            secretphrase = document.getElementById("secretphrase").value
+            checkphrase = document.getElementById("checkphrase").value
+            if (secretphrase == checkphrase) {
+                correct = correct + 1;
+                document.getElementById("result").innerHTML = "Correct count " + correct;
+                alert("access allowed");
+            } else {
+
+                wrong = wrong + 1;
+                document.getElementById("result").innerHTML = "Wrong count " + wrong;
+                alert("access denied");
+            }
+        }
+    </script>
+
+</head>
+ 
+<body>
+
+<h1>Pass phrase by Satish Vagulapuram</h1>
+
+<form>
+    <label for="secretphrase">Enter the secret phrase </label>
+    <input type="password" id="secretphrase" name="secretphrase" value="Let me in"> <br>
+    <label for="checkphrase">Enter a phrase</label>
+    <input type="text" id="checkphrase" name="checkphrase" autofocus> <br>
+    <br>
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
+</form>
+
+<p id="result">Attempts display here </p>
+
+
+<div class="container">
+    <img src="lion.jpg" id="lion" alt="Lion" width="200px" height="200px" onclick="newImage()">
+</div>
+
+<script> 
+var correct = 0;
+var wrong = 0;
+function giveAlert(){
+    alert("Account locked")
+}
+function processPhrase (){
+    s = document.getElementById("secret_phrase").value
+    console.log(s);
+    p = document.getElementById("check_phrase").value
+    console.log(p);
+    out = document.getElementById("result")
+    console.log(out);
+    if(s == p){
+        alert("Access allowed");
+        correct++
+        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+    }else if(wrong >= 2){
+        document.getElementById("btn1").onclick = giveAlert()
+        giveAlert()
+        wrong++ 
+        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+    }else {
+        alert("Access denied");
+        wrong++ 
+        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+    }
+}
+let usingImage = 1;
+function newImage(){
+    img = document.getElementById("lion")
+    switch (usingImage) {
+        case 1:
+            img.src = "Utonagan.jpg"
+            usingImage = 2
+            break;
+        case 2:
+            img.src = "Vulture.jpg"
+            usingImage = 3
+            break;
+        case 3:
+            img.src = "lion.jpg"  
+            usingImage = 1
+            break;  
+        default:
+            break;
+    }
+}
+</script>
+
+
+
+</body>
+</html> 
