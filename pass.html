@@ -3,98 +3,90 @@
 <head>
     <title> Basic java script and interact with the DOM</title>
 
-    <script>
-        var correct = 0, wrong = 0;
-        function processPhrase() {
-
-            secretphrase = document.getElementById("secretphrase").value
-            checkphrase = document.getElementById("checkphrase").value
-            if (secretphrase == checkphrase) {
-                correct = correct + 1;
-                document.getElementById("result").innerHTML = "Correct count " + correct;
-                alert("access allowed");
-            } else {
-
-                wrong = wrong + 1;
-                document.getElementById("result").innerHTML = "Wrong count " + wrong;
-                alert("access denied");
-            }
-        }
-    </script>
-
-</head>
- 
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+ </head>
 <body>
-
-<h1>Pass phrase by Satish Vagulapuram</h1>
-
-<form>
-    <label for="secretphrase">Enter the secret phrase </label>
-    <input type="password" id="secretphrase" name="secretphrase" value="Let me in"> <br>
-    <label for="checkphrase">Enter a phrase</label>
-    <input type="text" id="checkphrase" name="checkphrase" autofocus> <br>
-    <br>
-    <input type="button" onclick="processPhrase()" value="Check the phrase">
-</form>
-
-<p id="result">Attempts display here </p>
-
-
 <div class="container">
-    <img src="lion.jpg" id="lion" alt="Lion" width="200px" height="200px" onclick="newImage()">
-</div>
 
-<script> 
-var correct = 0;
-var wrong = 0;
-function giveAlert(){
-    alert("Account locked")
-}
-function processPhrase (){
-    s = document.getElementById("secret_phrase").value
-    console.log(s);
-    p = document.getElementById("check_phrase").value
-    console.log(p);
-    out = document.getElementById("result")
-    console.log(out);
-    if(s == p){
-        alert("Access allowed");
-        correct++
-        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
-    }else if(wrong >= 2){
-        document.getElementById("btn1").onclick = giveAlert()
-        giveAlert()
-        wrong++ 
-        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
-    }else {
-        alert("Access denied");
-        wrong++ 
-        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
-    }
-}
-let usingImage = 1;
-function newImage(){
-    img = document.getElementById("lion")
-    switch (usingImage) {
-        case 1:
-            img.src = "Utonagan.jpg"
-            usingImage = 2
-            break;
-        case 2:
-            img.src = "Vulture.jpg"
-            usingImage = 3
-            break;
-        case 3:
-            img.src = "lion.jpg"  
-            usingImage = 1
-            break;  
-        default:
-            break;
-    }
-}
-</script>
+<h1 style="color: rgb(52, 25, 138);">Pass phrase by Satish Vagulapuram</h1>
 
-
+<form style="width: 300px;">
+    <div class="form-check">
+     <label class="form-label" for="secrect_phrase">Enter the secret phrase</label>
+     <input type ="password" class="form-control" id="secret_phrase" name="secrect_phrase" min=10 max=50 step=2 value="Let me in"> <br>
+ 
+     <label class="form-label" for="check_phrase">Enter a phrase</label>
+     <input type ="text" class="form-control" id="check_phrase" name="check_phrase" autofocus> <br>
+ 
+     <input type="button" class="btn btn-primary" id="btn1" onclick="processPhrase()" value="Check the phrase">
+    </div>
+ </form>
+ 
+ 
+ <p id="result">Attempts display here </p>
+ </div>
+ 
+ <div class="container">
+     <img src="lion.jpg" id="lion" alt="Lion" width="200px" height="200px" onclick="newImage()">
+ </div>
+ 
+ <script> 
+ let correct = 0;
+ let wrong = 0;
+ function giveAlert(){
+     alert("Account locked")
+ }
+ function processPhrase (){
+     s = document.getElementById("secret_phrase").value
+     console.log(s);
+     p = document.getElementById("check_phrase").value
+     console.log(p);
+     out = document.getElementById("result")
+     console.log(out);
+     if(s == p){
+         alert("Access allowed");
+         correct++
+         out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+     }else if(wrong >= 2){
+         document.getElementById("btn1").onclick = giveAlert()
+         wrong++ 
+         out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+     }else {
+         alert("Access denied");
+         wrong++ 
+         out.innerHTML = "Correct: " + correct + " Wrong: " + wrong;
+     }
+ }
+ let usingImage = 1;
+ function newImage(){
+     img = document.getElementById("lion")
+     switch (usingImage) {
+         case 1:
+             img.src = "Utonagan.jpg"
+             usingImage = 2
+             break;
+         case 2:
+             img.src = "Vulture.jpg"
+             usingImage = 3
+             break;
+         case 3:
+             img.src = "lion.jpg"  
+             usingImage = 1
+             break;  
+         default:
+             break;
+     }
+ }
+ </script>
+ 
 
 </body>
 </html> 
